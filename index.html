@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Trivia Game</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -13,114 +13,76 @@
     <header>
         <h1>Music Trivia Game</h1>
     </header>
-    <div id="quiz"></div>
-    <button id="submit">Submit</button>
-    <div id="results"></div>
-    <div class="quiz-container">
-        <div id="quiz"></div>
-    </div>
 
-
-    <script>
-        function buildQuiz() {
-            // we'll need a place to store the HTML output
-            const output = [];
-            console.log("buildquiz");
-            // for each question...
-            myQuestions.forEach(
-                (currentQuestion, questionNumber) => {
-
-                    // we'll want to store the list of answer choices
-                    const answers = [];
-
-                    // and for each available answer...
-                    for (letter in currentQuestion.answers) {
-
-                        // ...add an HTML radio button
-                        answers.push(
-                            `<label>
-                  <input type="radio" name="question${questionNumber}" value="${letter}">
-                  ${letter} 
-                  ${currentQuestion.answers[letter]}
-                </label>`
-                output.push(
-                                `<div class="slide">
-    <div class="question"> ${currentQuestion.question} </div>
-    <div class="answers"> ${answers.join("")} </div>
-  </div>`
-                            );
-                        );
-        }
-
-        // add this question and its answers to the output
-        output.push(
-            `<div class="question"> ${currentQuestion.question} </div>
-              <div class="answers"> ${answers.join('')} </div>`
-        );
-                }
-            );
-
-        // finally combine our output list into one string of HTML and put it on the page
-        quizContainer.innerHTML = output.join('');
-        }
-        function showResults() {
-
-            // gather answer containers from our quiz
-            const answerContainers = quizContainer.querySelectorAll('.answers');
-
-            // keep track of user's answers
-            let numCorrect = 0;
-
-            // for each question...
-            myQuestions.forEach((currentQuestion, questionNumber) => {
-
-                // find selected answer
-                const answerContainer = answerContainers[questionNumber];
-                const selector = 'input[name=question' + questionNumber + ']:checked';
-                const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-                // if answer is correct
-                if (userAnswer === currentQuestion.correctAnswer) {
-                    // add to the number of correct answers
-                    numCorrect++;
-
-                    // color the answers green
-                    answerContainers[questionNumber].style.color = 'lightgreen';
-                }
-                // if answer is wrong or blank
-                else {
-                    // color the answers red
-                    answerContainers[questionNumber].style.color = 'red';
-                }
-            });
-
-            // show number of correct answers out of total
-            resultsContainer.innerHTML = numCorrect + ' out of ' + myQuestions.length;
-        }
-        // gather answer containers from our quiz
-        const answerContainers = quizContainer.querySelectorAll('.answers');
-
-        // keep track of user's answers
-        // let numCorrect = 0;
-        // for each question...
-        //myQuestions.forEach( (currentQuestion, questionNumber) => {
-
-
-
-        // show number of correct answers out of total
-        resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-        output.push(
-            <div id="clockdiv">
-    Days: <span class="days"></span><br>
-    Hours: <span class="hours"></span><br>
-    Minutes: <span class="minutes"></span><br>
-    Seconds: <span class="seconds"></span>
-</div>
 
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/javascript/app.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
+    <div id="root"></div>
+    <div id="countdown"></div>
+    <!-- <form>
+        <input type="radio" name="option1" value="Stevie Wonder"> Stevie Wonder<br>
+        <input type="radio" name="option2" value="Smokey Robinson"> Smokey Robinson<br>
+        <input type="radio" name="option3" value="Marvin Gaye"> Marvin Gaye<br>
+        <input type="submit" value="Submit">
+    </form>
+    <form>
+        <input type="radio" name="option1" value="Trumpet"> Trumpet<br>
+        <input type="radio" name="option2" value="Tuba"> Tuba<br>
+        <input type="radio" name="option3" value="Clarinet"> Clarinet<br>
+        <input type="submit" value="Submit">
+    </form>
+    <form>
+        <input type="radio" name="option1" value="Savannah"> Stevie Wonder<br>
+        <input type="radio" name="option2" value="Atlanta"> Smokey Robinson<br>
+        <input type="radio" name="option3" value="Macon"> Marvin Gaye<br>
+        <input type="radio" name="option4" value="Augusta"> Augusta<br>
+        <input type="submit" value="Submit">
+    </form>
+    <input type="radio" name="option1" value="Willa Mae Big Mama Thornton"> Willa Mae Big Mama Thornton<br>
+    <input type="radio" name="option2" value="Elvis Presley"> Elvis Presley<br>
+    <input type="radio" name="option3" value="Carl Perkins"> Carl Perkins<br>
+    <input type="radio" name="option4" value="Chuck Berry"> Chuck Berry<br>
+    <input type="radio" name="option4" value="Miley Cyrus"> Miley Cyrus<br>
+    <input type="submit" value="Submit">
+    </form> -->
+
+    <!-- <div>
+        <h3 class="question">Sample Question</h3>
+        <form>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                <label class="form-check-label" for="exampleRadios1">
+                    One
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                <label class="form-check-label" for="exampleRadios2">
+                    Two
+                </label>
+            </div>
+        </form>
+    </div> -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="assets/javascript/app.js"></script>
+  
+    
+
+       
+            <audio src ="http://www.frankiesbluesmission.com/~media/Clusterfunk-EP.mp3" loop="true" autoplay="true" controls="true">
+            </audio>
+    </audio>
 </body>
 
 </html>

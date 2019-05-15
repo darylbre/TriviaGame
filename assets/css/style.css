@@ -1,29 +1,22 @@
 body {
     background-image: url("../images/2.jpg");
+    opacity: 60;
 }
-header {
-    align-content: center;
+h1 {
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.slide{
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.5s;
-  }
-  .active-slide{
-    opacity: 1;
-    z-index: 2;
-  }
-  .quiz-container{
-    position: relative;
-    height: 200px;
-    margin-top: 40px;
-  }
-  div {
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      font-size: large;
-      background-color: white;
-  }
+
+ div {
+   color: white;
+   opacity: 60;
+   
+  
+ 
+ } 
+
+ form {
+   color: ghostwhite;
+   background-color: rgba(218, 165, 32, 0.479);
+
+ }
